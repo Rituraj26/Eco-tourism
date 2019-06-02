@@ -9,9 +9,10 @@ body{
 }
 .heading{
 	width: 100%;
-	background-image: url("./image/jeremy-bishop-340107-unsplash.jpg");
+	background-image: url("./image/background.jpg");
 	background-size: cover;
-	min-height: 700px;
+	background-position: center;
+	height: 100vh;
 	color: black;
 	font-weight: bold;
 	text-align: center;
@@ -32,11 +33,15 @@ body{
 	height: 220px;
 }
 .login_container{
-	width: 30%;
-	height: 410px;
+	width: 40vw;
+	height: 50vh;
 	margin: 100px auto;
 	background-color: #f7f7f7; 
 	box-shadow: 0 0 2px 1px rgba(0, 0, 255, 0.2);
+}
+
+.login {
+	height: 60vh;
 }
 .login_header{
 	background: #2980b9;
@@ -52,8 +57,8 @@ body{
 	background-color: #010f26;
 	color: white;
 	text-align: center;
-	height: 300px;
-	padding: 70px;
+	height: 60px;
+	padding: 20px;
 	font-size: 13px;
 }
 .footer_other{
@@ -68,15 +73,7 @@ body{
 h6{
 	font-weight: bold;
 }
-.carousel{
-	background: gray;
-}
-.carousel-item img{
-	height: 230px;
-	width: 16.4%;
-	margin: 0;
-	padding: 0;
-}
+
 .login_to_explore{
 	height: 300px;
 	padding: 100px;
@@ -87,11 +84,7 @@ h6{
 .login_to_explore a{
 	color: white;
 }
-@media (max-width: 90em){
-.remove_carousel {
-display: none;
-}
-}
+
 .thumbnail{
 	margin-bottom: 30px;
 }
@@ -164,4 +157,15 @@ hr{
 	border-color: #8c8b8b; 
 	border-width: 0 0 1px 0; 
 	border-radius: 20px; 
+}
+
+@media only screen and (max-width: 1100px) {
+	.card {
+		width: 40vw;
+	}
+}
+@media only screen and (max-width: 800px) {
+	.login_container {
+		width: 60vw;
+	}
 }
