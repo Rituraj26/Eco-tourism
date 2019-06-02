@@ -1,0 +1,67 @@
+<% include ../partials/header %>
+            
+            <div class="heading">
+                     <h1>Welcome to Pictureich</h1>
+                     <a class="btn btn-outline-primary" href="/artcraft/new">Add New Photograph</a>
+            </div>
+            <div class="background">   
+                <div class="container">
+                    <div class="row" style="display: flex; flex-wrap: wrap;">
+                            <% artcraft.forEach(function(items){ %>
+                             <div class="col-md-4 col-sm-6">
+                                <div class="card" style="width: 18rem;">
+                                      <img class="card-img-top" src="<%= items.image %>" alt="Card image cap">
+                                      <div class="card-body">
+                                            <h6 class="card-title"><%= items.title %></h6>
+                                            <p class="card-text"><%= items.description.substring(0, 50) %> . . .</p>
+                                            <a href="/artcraft/<%= items._id %>" class="btn btn-outline-primary">More Info</a>
+                                      </div>
+                                </div>
+                             </div>
+                            <% }); %>
+                    </div>
+                </div>
+            </div>
+            <div class="remove_carousel">
+                   <div class="login_to_explore">
+                     <h4>Login To Explore And Buy Products</h4>
+                     <a class="btn btn-outline-primary" href="/login">Login</a>
+                   </div>
+                   <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                      <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <img src="stylesheets/image/carousel/photography/camera-1030956_640.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/camera-2125549_640.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/disused-railway-line-3301252_640.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/hand-1030563_640.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/lighthouse-2306978_640.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/moon-2285628_640.jpg" alt="First slide">
+                           </div>
+                            <div class="carousel-item">
+                              <img src="stylesheets/image/carousel/photography/alex-koch-513863-unsplash.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/dean-truderung-448000-unsplash.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/matthew-gillespie-776776-unsplash.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/rawpixel-623440-unsplash.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/stefano-zocca-705753-unsplash.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/stephan-766394-unsplash.jpg" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                              <img src="stylesheets/image/carousel/photography/lighthouse-2372319_640.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/phone-802125_640.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/photographer-1149781_640.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/photographer-2133329_640.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/photography-407188_640.jpg" alt="First slide">
+                              <img src="stylesheets/image/carousel/photography/photos-1150076_640.jpg" alt="First slide">
+                            </div>
+                      </div>
+                </div>
+          </div>
+             <div class="footer">
+                <h2>Pictureich</h2>
+                <p><em>Created by: Rituraj Dutta</em></p>
+                <h6>Contact Details</h6>
+                <p>contactemail@gmail.com<br>
+                9363424622</p>
+                  &copy; 2018 demoproject.Inc
+            </div>
+<% include ../partials/footer %>
