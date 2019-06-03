@@ -1,27 +1,23 @@
 <% include ./partials/header %>
 
-<div class="login_container login">
+<div class="login_container">
 	<form action="/login" method="POST">
 		  <div class="login_header">Login</div>
-		 	<div class="container">
-			  <div class="form-group">
-			    <label for="Username">Username</label>
-			    <input type="text" class="form-control" id="Username" name="username" placeholder="Username">
-			  </div>
-			  <div class="form-group">
-			    <label for="Password">Password</label>
-			    <input type="password" class="form-control" id="Password" name="password" placeholder="Password">
-			  </div>
-			   <div class="form-group">
-				    <label for="Password">Admin Code</label>
-				    <input type="password" class="form-control" id="Password" name="admincode" placeholder="Admin Code">
-				  </div>
-			  <br>
-			  	<button type="submit" class="btn btn-primary">Submit</button>
-			  	<br><br>
-			  	<a href="/artcraft">Go Back</a>
-			  	<p>Don't have an account? <a href="/register">Sign Up</a></p>
-			</div>
+				<div class="container">
+					<div class="form-group">
+						<label for="Username">Username</label>
+						<input type="text" class="form-control" id="Username" name="username" placeholder="Username">
+					</div>
+					<div class="form-group">
+						<label for="Password">Password</label>
+						<input type="password" class="form-control" id="Password" name="password" placeholder="Password">
+					</div>
+					<br>
+					<button type="submit" class="btn btn-primary">Submit</button>
+					<br><br>
+					<a href="/artcraft">Go Back</a>
+					<p>Don't have an account? <a href="/register">Sign Up</a></p>
+				</div>
 	</form>
 </div>
 
