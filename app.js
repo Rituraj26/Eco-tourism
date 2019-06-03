@@ -42,7 +42,7 @@ app.use(function(req, res, next){
 
 app.use("/", indexRoutes);
 app.use("/artcraft", artcraftRoutes);
-app.use("artcraft/:id/comments", commentRoutes);
+app.use("/artcraft/:id/comments", commentRoutes);
 
 
 // app.listen(process.env.PORT, process.env.IP, function(){

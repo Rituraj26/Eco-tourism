@@ -1,4 +1,17 @@
-html{
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+
+/* html{
 	height: 100%;
 }
 body{
@@ -22,6 +35,10 @@ body{
 .heading a{
 	text-decoration: none;
 }
+
+.card-container {
+	padding: 10vw;
+}
 .card{
 	width: 30%;
 	height: 440px;
@@ -31,7 +48,9 @@ body{
 }
 .card-img-top{
 	height: 220px;
-}
+} */
+
+
 .login_container{
 	width: 40vw;
 	height: 50vh;

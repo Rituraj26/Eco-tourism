@@ -1,29 +1,29 @@
-<% include ../partials/header %>
-            
-            <div class="heading">
-                     <h1>Welcome to Pictureich</h1>
-                     <a class="btn btn-outline-primary" href="/artcraft/new">Add New Photograph</a>
-            </div>
-            <div class="background">   
-                <div class="container">
-                    <div class="row" style="display: flex; flex-wrap: wrap;">
-                            <% artcraft.forEach(function(items){ %>
-                             <div class="col-md-4 col-sm-6">
-                                <div class="card" style="width: 18rem;">
-                                      <img class="card-img-top" src="<%= items.image %>" alt="Card image cap">
-                                      <div class="card-body">
-                                            <h6 class="card-title"><%= items.title %></h6>
-                                            <p class="card-text"><%= items.description.substring(0, 50) %> . . .</p>
-                                            <a href="/artcraft/<%= items._id %>" class="btn btn-outline-primary">More Info</a>
-                                      </div>
-                                </div>
-                             </div>
-                            <% }); %>
-                    </div>
+<% include ../partials/header %> 
+
+     <header class="jumbotron">
+         <div class="container">
+             <h1><span class="glyphicon glyphicon-tent"></span> Welcome To Artcraft!</h1>
+             <p>View our hand-picked artcraft from all over the world</p>
+             <p>
+                <a class="btn btn-outline-primary btn-lg" href="/artcraft/new">Add New artcraft</a>
+             </p>
+         </div>
+     </header>
+     
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% artcraft.forEach(function(artcraft){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= artcraft.image %>">
+                   <div class="caption">
+                       <h4><%= artcraft.name %></h4>
+                   </div>
+                   <p>
+                       <a href="/artcraft/<%= artcraft._id %>" class="btn btn-outline-primary">More Info</a>
+                   </p>
                 </div>
             </div>
-            
-             <div class="footer">
-                <p>&copy; Copyright 2019 by Rituraj Dutta</p>
-            </div>
+        <% }); %>
+    </div>
+
 <% include ../partials/footer %>
