@@ -9,7 +9,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
     Art.findById(req.params.id, function(err, newdetails){
         if(err){
             console.log(err);
-        }   else    {
+        } else {
             res.render("comment/new", {newdetails: newdetails});
         }
     });
