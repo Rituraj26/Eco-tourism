@@ -46,8 +46,8 @@ app.use("/artcraft", artcraftRoutes);
 app.use("/artcraft/:id/comments", commentRoutes);
 
 
-app.listen(process.env.PORT, process.env.IP);
+// app.listen(process.env.PORT, process.env.IP);
 
-// app.listen(3000, function(){
-// console.log("Pictureich server is running! ");
-// });
+app.listen(3000, function(){
+console.log("Pictureich server is running! ");
+});
