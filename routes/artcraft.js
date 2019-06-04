@@ -23,9 +23,11 @@ var upload = multer({ storage: storage, fileFilter: imageFilter});
 
 
 cloudinary.config({ 
-  cloud_name: 'rickyich', 
-  api_key: 685182919123641, 
-  api_secret: "QF7I2PBVQ0H7VjajHeUr86FFUZk"
+  cloud_name: process.env.CLOUDNAME, 
+  api_key: process.env.APIKEY,
+  api_secret: process.env.APISECRET
+//   685182919123641, 
+//   "QF7I2PBVQ0H7VjajHeUr86FFUZk"
 });
 
 router.get("/", function(req, res){
