@@ -18,7 +18,7 @@
 
                         <% } %>
                         <% if(!currentUser){ %>
-                            <a class="btn btn-outline-primary" href="/login">To see contact details you need to be logged in. Click</a>
+                            <a class="btn btn-outline-primary" href="/login">Login to see contact details</a>
                         <% }   else    { %>
 
                         <% } %>
@@ -32,29 +32,25 @@
                 </div>
                 <br><br>
                 <hr>
-                <a class="btn btn-outline-secondary" href="/artcraft" style="width: 100%;">Search for a different photograph</a>
+                <a class="btn btn-outline-secondary" href="/artcraft" style="width: 100%;">Explore</a>
         </div>
         <div class="comment_container">
                 <a class="btn btn-outline-primary" href="/artcraft/<%= artdetails._id %>/comments/new">Add New Comment</a>
                 <br><br>
-                         <% artdetails.comments.forEach(function(comment){ %>
-                                <div class="comments">
-                                <dl>
-                                        <dt><h6><%= comment.name.username %></h6></dt>
-                                        <pre><dt>  - <em><%= comment.content %></em></dt></pre>
-                                </dl>
-                                <% if(currentUser && comment.name.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-                                        <a class="btn btn-outline-primary btn-sm" href="/artcraft/<%= artdetails._id %>/comments/<%= comment._id %>/edit">Edit</a>
-                                        <form class="delete_form" action="/artcraft/<%= artdetails._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                                                <button class="btn btn-outline-danger btn-sm">Delete</button>
-                                         </form>
-                                <% } %>
-                                </div>
-                        <% }); %>
+					<% artdetails.comments.forEach(function(comment){ %>
+						<div class="comments">
+						<dl>
+								<dt><h6><%= comment.name.username %></h6></dt>
+								<pre><dt>  - <em><%= comment.content %></em></dt></pre>
+						</dl>
+						<% if(currentUser && comment.name.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+								<a class="btn btn-outline-primary btn-sm" href="/artcraft/<%= artdetails._id %>/comments/<%= comment._id %>/edit">Edit</a>
+								<form class="delete_form" action="/artcraft/<%= artdetails._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+										<button class="btn btn-outline-danger btn-sm">Delete</button>
+									</form>
+						<% } %>
+						</div>
+				<% }); %>
         </div>
-        <div class="footer_other">
-                <h2>Pictureich</h2>
-                <p><em>Created by: Rituraj Dutta</em></p>
-                &copy; 2018 demoproject.Inc
-        </div>
+
 <% include ../partials/footer %> 

@@ -15,8 +15,9 @@
             <div class="col-md-3 col-sm-6">
                 <div class="thumbnail">
                    <img src="<%= artcraft.image %>">
-                   <div class="caption">
-                       <h4><%= artcraft.name %></h4>
+                   <div class="caption card-body">
+						<h6 class="card-title"><%= artcraft.title %></h6>
+						<p class="card-text"><%= artcraft.description.substring(0, 50) %> . . .</p>
                    </div>
                    <p>
                        <a href="/artcraft/<%= artcraft._id %>" class="btn btn-outline-primary">More Info</a>

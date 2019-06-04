@@ -21,7 +21,6 @@ router.post("/", middleware.isLoggedIn, function(req, res){
             console.log(err);
             res.redirect("/artcraft");
         } else {
-            console.log(req.body.comment);
             Comment.create(req.body.newcomment, function(err, comment){
                 if(err){
                     console.log(err);
