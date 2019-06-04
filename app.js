@@ -14,7 +14,8 @@ var artcraftRoutes = require('./routes/artcraft');
 var commentRoutes = require('./routes/comments');
 
 
-mongoose.connect("mongodb://localhost/artcraft");
+mongoose.connect(process.env.DATABASEURL);
+
 app.use(flash());
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -45,10 +46,8 @@ app.use("/artcraft", artcraftRoutes);
 app.use("/artcraft/:id/comments", commentRoutes);
 
 
-// app.listen(process.env.PORT, process.env.IP, function(){
-//    console.log("The YelpCamp Server Has Started!");
-// });
+app.listen(process.env.PORT, process.env.IP);
 
-app.listen(3000, function(){
-console.log("Pictureich server is running! ");
-});
+// app.listen(3000, function(){
+// console.log("Pictureich server is running! ");
+// });
