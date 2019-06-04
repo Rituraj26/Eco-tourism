@@ -1,0 +1,30 @@
+<% include ../partials/header %> 
+
+     <header class="jumbotron">
+         <div class="container">
+             <h1><span class="glyphicon glyphicon-tent"></span> Welcome To Ecotourism!</h1>
+             <p>View our hand-picked ecotourism from all over the world</p>
+             <p>
+                <a class="btn btn-outline-primary btn-lg" href="/ecotourism/new">Add New Post</a>
+             </p>
+         </div>
+     </header>
+     
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% ecotourism.forEach(function(ecotourism){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= ecotourism.image %>">
+                   <div class="caption card-body">
+						<h6 class="card-title"><%= ecotourism.title %></h6>
+						<p class="card-text"><%= ecotourism.description.substring(0, 50) %> . . .</p>
+                   </div>
+                   <p>
+                       <a href="/ecotourism/<%= ecotourism._id %>" class="btn btn-outline-primary">More Info</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+<% include ../partials/footer %>
