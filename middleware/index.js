@@ -1,5 +1,5 @@
 var Comment = require("../models/comment");
-var Art = require("../models/artcraft");
+var Art = require("../models/ecotourism");
 
 
 function isLoggedIn(req, res, next){
@@ -10,14 +10,14 @@ function isLoggedIn(req, res, next){
     res.redirect("/login");
 }
 
-function checkArtCraftOwnership(req, res, next){
+function checkecotourismOwnership(req, res, next){
 	if(req.isAuthenticated()){
-		Art.findById(req.params.id, function(err, artcraft){
+		Art.findById(req.params.id, function(err, ecotourism){
 			if(err){
 				req.flash("error", "Something went wrong!"); 
 				res.redirect("back");
 			}  else {
-				if(artcraft.author.id.equals(req.user._id) || req.user.isAdmin) {
+				if(ecotourism.author.id.equals(req.user._id) || req.user.isAdmin) {
 					next();
 				} else {
 					req.flash("error", "You don't have permission to do that!");
@@ -55,6 +55,6 @@ function checkCommentOwnership(req, res, next){
 
 module.exports = {
 	isLoggedIn,
-	checkArtCraftOwnership,
+	checkecotourismOwnership,
 	checkCommentOwnership
 }

@@ -10,7 +10,7 @@ var methodOverride = require("method-override");
 var flash = require("connect-flash");
 
 var indexRoutes = require('./routes/index');
-var artcraftRoutes = require('./routes/artcraft');
+var ecotourismRoutes = require('./routes/ecotourism');
 var commentRoutes = require('./routes/comments');
 
 
@@ -23,7 +23,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 
 app.use(expressSession({
-    secret: "Art and Craft are really an interesting thing",
+    secret: "Ecotourism are really an interesting thing",
     resave: false,
     saveUninitialized: false
 }));
@@ -42,12 +42,12 @@ app.use(function(req, res, next){
 });
 
 app.use("/", indexRoutes);
-app.use("/artcraft", artcraftRoutes);
-app.use("/artcraft/:id/comments", commentRoutes);
+app.use("/ecotourism", ecotourismRoutes);
+app.use("/ecotourism/:id/comments", commentRoutes);
 
 
 // app.listen(process.env.PORT, process.env.IP);
 
 app.listen(3000, function(){
-console.log("Pictureich server is running! ");
+	console.log("Ecotourism server is running! ");
 });

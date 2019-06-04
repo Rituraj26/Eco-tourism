@@ -1,6 +1,6 @@
 var express = require("express");
 var router  = express.Router();
-var Art = require("../models/artcraft");
+var Ecotourism = require("../models/ecotourism");
 var middleware = require("../middleware");
 var multer = require('multer');
 var cloudinary = require('cloudinary');
@@ -26,77 +26,75 @@ cloudinary.config({
   cloud_name: process.env.CLOUDNAME, 
   api_key: process.env.APIKEY,
   api_secret: process.env.APISECRET
-//   685182919123641, 
-//   "QF7I2PBVQ0H7VjajHeUr86FFUZk"
 });
 
 router.get("/", function(req, res){
-    Art.find({}, function(err, artcraft){
+    Ecotourism.find({}, function(err, ecotourism){
         if(err){
             console.log(err);
         } else  {
-            res.render("artcraft/index", {artcraft: artcraft});
+            res.render("ecotourism/index", {ecotourism: ecotourism});
         }
     });
 });
 
 router.get("/new", middleware.isLoggedIn, function(req, res){
-    res.render("artcraft/new");
+    res.render("ecotourism/new");
 });
 
 router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, res){
 	cloudinary.uploader.upload(req.file.path, function(result) {
-		req.body.artcraft.image = result.secure_url;
-		req.body.artcraft.author = {
+		req.body.ecotourism.image = result.secure_url;
+		req.body.ecotourism.author = {
 			id: req.user._id,
 			username: req.user.username
 		}
-		Art.create(req.body.artcraft, function(err, artcraft) {
+		Ecotourism.create(req.body.ecotourism, function(err, ecotourism) {
 			if (err) {
 				req.flash('error', err.message);
 				return res.redirect('back');
 			}
-			res.redirect('/artcraft');
+			res.redirect('/ecotourism');
 		});
 	});
 });
 
 router.get("/:id", function(req, res){
-    Art.findById(req.params.id).populate("comments").exec(function(err, artdetails){
+    Ecotourism.findById(req.params.id).populate("comments").exec(function(err, Ecotourismdetails){
         if(err){
             console.log(err);
         }   else    {
-            res.render("artcraft/show", {artdetails: artdetails});
+            res.render("ecotourism/show", {Ecotourismdetails: Ecotourismdetails});
         }
     }); 
 });
 
-router.get("/:id/edit", middleware.checkArtCraftOwnership, function(req, res){
-    Art.findById(req.params.id, function(err, editedart){
+router.get("/:id/edit", middleware.checkecotourismOwnership, function(req, res){
+    Ecotourism.findById(req.params.id, function(err, editedEcotourism){
 		if(err){
 			console.log(err);
 		}   else    {
-			res.render("artcraft/edit", {editedart: editedart});
+			res.render("ecotourism/edit", {editedEcotourism: editedEcotourism});
 		}
     });
 });
 
-router.put("/:id", middleware.checkArtCraftOwnership, function(req, res){
-    Art.findByIdAndUpdate(req.params.id, req.body.editart, function(err, editedart){
+router.put("/:id", middleware.checkecotourismOwnership, function(req, res){
+    Ecotourism.findByIdAndUpdate(req.params.id, req.body.editEcotourism, function(err, editedEcotourism){
 		if(err){
 			console.log(err);
 		}   else    {
-			res.redirect("/artcraft/" + editedart._id);
+			res.redirect("/ecotourism/" + editedEcotourism._id);
 		}
     });
 });
 
-router.delete("/:id", middleware.checkArtCraftOwnership, function(req, res){
-    Art.findByIdAndRemove(req.params.id, function(err, removed){
+router.delete("/:id", middleware.checkecotourismOwnership, function(req, res){
+    Ecotourism.findByIdAndRemove(req.params.id, function(err, removed){
         if(err){
             console.log(err);
         }   else    {
-            res.redirect("/artcraft");
+            res.redirect("/ecotourism");
         }
     });
 });

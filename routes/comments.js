@@ -1,12 +1,12 @@
 var express = require("express");
 var router  = express.Router({mergeParams: true});
-var Art = require("../models/artcraft");
+var Ecotourism = require("../models/ecotourism");
 var Comment = require("../models/comment");
 var middleware = require("../middleware");
 
 
 router.get("/new", middleware.isLoggedIn, function(req, res){
-    Art.findById(req.params.id, function(err, newdetails){
+    Ecotourism.findById(req.params.id, function(err, newdetails){
         if(err){
             console.log(err);
         } else {
@@ -16,10 +16,10 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 });
 
 router.post("/", middleware.isLoggedIn, function(req, res){
-    Art.findById(req.params.id, function(err, artcraft){
+    Ecotourism.findById(req.params.id, function(err, ecotourism){
         if(err){
             console.log(err);
-            res.redirect("/artcraft");
+            res.redirect("/ecotourism");
         } else {
             Comment.create(req.body.newcomment, function(err, comment){
                 if(err){
@@ -28,9 +28,9 @@ router.post("/", middleware.isLoggedIn, function(req, res){
                   comment.name.id = req.user.id;
                   comment.name.username = req.user.username;
                   comment.save();
-                  artcraft.comments.push(comment);
-                  artcraft.save();
-                  res.redirect("/artcraft/" + artcraft._id);
+                  ecotourism.comments.push(comment);
+                  ecotourism.save();
+                  res.redirect("/ecotourism/" + ecotourism._id);
                 }
             });
         }
@@ -42,7 +42,7 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, 
         if(err){
             console.log(err);
         }   else    {
-            res.render("comment/edit", {artcraft_id: req.params.id, comment: comment});
+            res.render("comment/edit", {ecotourism_id: req.params.id, comment: comment});
         }
     });
 });
@@ -52,7 +52,7 @@ router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res){
         if(err){
             console.log(err);
         }   else    {
-            res.redirect("/artcraft/" + req.params.id);
+            res.redirect("/ecotourism/" + req.params.id);
         }
     });
 });
@@ -62,7 +62,7 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, re
         if(err){
             console.log(err);
         }   else    {
-            res.redirect("/artcraft/" + req.params.id);
+            res.redirect("/ecotourism/" + req.params.id);
         }
     });
 });

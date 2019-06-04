@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var artcraftSchema = new mongoose.Schema({
+var ecotourismSchema = new mongoose.Schema({
     title: String,
     price: String,
     image: String,
@@ -22,4 +22,4 @@ var artcraftSchema = new mongoose.Schema({
    ]
 });
 
-module.exports = mongoose.model("Art", artcraftSchema);
+module.exports = mongoose.model("Ecotourism", ecotourismSchema);

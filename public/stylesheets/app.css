@@ -87,9 +87,13 @@ body{
 	color: white;
 	text-align: center;
 	height: 3.5rem;
+	width: 100%;
 	padding: 1rem;
 	font-size: .8rem;
 	letter-spacing: .1rem;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }
 
 h6{

@@ -1,7 +1,7 @@
 {
-  "name": "art_and_craft",
+  "name": "ecotourism",
   "version": "1.0.0",
-  "description": "Art and Craft Selling Website",
+  "description": "Ecotourism is a place where you can find different eco friendly places to visit",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
