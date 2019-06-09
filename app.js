@@ -13,7 +13,7 @@ var indexRoutes = require('./routes/index');
 var ecotourismRoutes = require('./routes/ecotourism');
 var commentRoutes = require('./routes/comments');
 
-var url = process.env.DATABASEURL || "mongodb://localhost/ecotourism";
+var url = process.env.DATABASEURL;
 mongoose.connect(url);
 
 app.use(flash());
