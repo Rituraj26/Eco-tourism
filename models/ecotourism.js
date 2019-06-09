@@ -13,7 +13,7 @@ var ecotourismSchema = new mongoose.Schema({
          ref: "User"
       },
       username: String
-   },
+   	},
     comments: [
       {
          type: mongoose.Schema.Types.ObjectId,
