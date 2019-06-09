@@ -13,8 +13,10 @@ var indexRoutes = require('./routes/index');
 var ecotourismRoutes = require('./routes/ecotourism');
 var commentRoutes = require('./routes/comments');
 
-// mongoose.connect(process.env.DATABASEURL);
-mongoose.connect("mongodb://localhost/ecotourism");
+// CONFIG
+
+mongoose.connect(process.env.DATABASEURL);
+// mongoose.connect("mongodb://localhost/ecotourism");
 
 app.use(flash());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -46,6 +48,6 @@ app.use("/ecotourism", ecotourismRoutes);
 app.use("/ecotourism/:id/comments", commentRoutes);
 
 
-// app.listen(process.env.PORT, process.env.IP);
+app.listen(process.env.PORT, process.env.IP);
 
-app.listen(3000);
+// app.listen(3000);
