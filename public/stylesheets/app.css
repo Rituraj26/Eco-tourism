@@ -157,6 +157,7 @@ hr{
 }
 @media only screen and (max-width: 800px) {
 	.login_container {
-		width: 60vw;
+		width: 80vw;
+		margin: 10px auto;
 	}
 }
