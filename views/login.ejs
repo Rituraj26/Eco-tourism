@@ -1,24 +1,22 @@
 <% include ./partials/header %>
-
-<div class="login_container">
-	<form action="/login" method="POST">
-		<div class="login_header">Login</div>
-			<div class="container">
-				<div class="form-group">
-					<label for="Username">Username</label>
-					<input type="text" class="form-control" id="Username" name="username" placeholder="Username">
-				</div>
-				<div class="form-group">
-					<label for="Password">Password</label>
-					<input type="password" class="form-control" id="Password" name="password" placeholder="Password">
-				</div>
-				<br>
-				<button type="submit" class="btn btn-primary">Submit</button>
-				<br><br>
-				<a href="/ecotourism">Go Back</a>
-				<p>Don't have an account? <a href="/register">Sign Up</a></p>
-			</div>
-	</form>
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Login</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="username" placeholder="username">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="password">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Login</button>
+                </div>
+            </form>
+            <a href="/campgrounds">Go Back</a>
+        </div>
+    </div>
 </div>
-
 <% include ./partials/footer %>
+
