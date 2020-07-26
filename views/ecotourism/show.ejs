@@ -1,56 +1,60 @@
-<% include ../partials/header %>        
-        <div class="show_container">    
-                <img class="explored_image" src="<%= Ecotourismdetails.image %>"> 
-                <div class="caption">
-                        <h4><%= Ecotourismdetails.title %></h4>
-                        <p><%= Ecotourismdetails.description %></p>
-                        <h3 class="pull-right">Rs <%= Ecotourismdetails.price %></h3>
-                        <p>Submitted By: <%= Ecotourismdetails.author.username %></p>
-                       <% if(currentUser){ %>
-                        <details>
-                                <summary>Contact Details</summary>
-                                <p>
-                                        Ph no. <%= Ecotourismdetails.phone_no %><br>
-                                        Email: <%= Ecotourismdetails.Email %>
-                                </p>
-                        </details>
-                        <% }   else    { %>
+<% include ../partials/header %>
+<div class="show_container">
+	<img class="explored_image" src="<%= Ecotourismdetails.image %>">
+	<div class="caption">
+		<h4 class="my-3"><%= Ecotourismdetails.title %></h4>
+		<p class="text-justify ecotourism_desc"><%= Ecotourismdetails.description %></p>
+		<h3 class="pull-right my-4">Rs <%= Ecotourismdetails.price %></h3>
+		<p>Submitted By: <%= Ecotourismdetails.author.username %></p>
+		<% if(currentUser){ %>
+		<details>
+			<summary>Contact Details</summary>
+			<p>
+				Ph no. <%= Ecotourismdetails.phone_no %><br>
+				Email: <%= Ecotourismdetails.Email %>
+			</p>
+		</details>
+		<% }   else    { %>
 
-                        <% } %>
-                        <% if(!currentUser){ %>
-                            <a class="btn btn-outline-primary" href="/login">Login to see contact details</a>
-                        <% }   else    { %>
+		<% } %>
+		<% if(!currentUser){ %>
+		<a class="btn btn-outline-primary" href="/login">Login to see contact details</a>
+		<% }   else    { %>
 
-                        <% } %>
-                        <br>
-                        <% if(currentUser && Ecotourismdetails.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>   
-                                        <a class="btn btn-outline-primary" href="/ecotourism/<%= Ecotourismdetails._id %>/edit">Edit</a>
-                                        <form class="delete_form" action="/ecotourism/<%= Ecotourismdetails._id %>?_method=DELETE" method="POST">
-                                                <button class="btn btn-outline-danger">Delete</button>
-                                        </form>
-                        <% } %>
-                </div>
-                <br><br>
-                <hr>
-                <a class="btn btn-outline-secondary" href="/ecotourism" style="width: 100%;">Explore</a>
-        </div>
-        <div class="comment_container">
-                <a class="btn btn-outline-primary" href="/ecotourism/<%= Ecotourismdetails._id %>/comments/new">Add New Comment</a>
-                <br><br>
-					<% Ecotourismdetails.comments.forEach(function(comment){ %>
-						<div class="comments">
-						<dl>
-								<dt><h6><%= comment.name.username %></h6></dt>
-								<pre><dt>  - <em><%= comment.content %></em></dt></pre>
-						</dl>
-						<% if(currentUser && comment.name.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-								<a class="btn btn-outline-primary btn-sm" href="/ecotourism/<%= Ecotourismdetails._id %>/comments/<%= comment._id %>/edit">Edit</a>
-								<form class="delete_form" action="/ecotourism/<%= Ecotourismdetails._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-									<button class="btn btn-outline-danger btn-sm">Delete</button>
-								</form>
-						<% } %>
-						</div>
-				<% }); %>
-        </div>
+		<% } %>
+		<br>
+		<% if(currentUser && Ecotourismdetails.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+		<a class="btn btn-outline-primary" href="/ecotourism/<%= Ecotourismdetails._id %>/edit">Edit</a>
+		<form class="delete_form" action="/ecotourism/<%= Ecotourismdetails._id %>?_method=DELETE" method="POST">
+			<button class="btn btn-outline-danger">Delete</button>
+		</form>
+		<% } %>
+	</div>
+	<br><br>
+	<hr>
+	<a class="btn btn-outline-secondary" href="/ecotourism" style="width: 100%;">Explore</a>
+</div>
+<div class="comment_container my-5">
+	<a class="btn btn-outline-primary" href="/ecotourism/<%= Ecotourismdetails._id %>/comments/new">Add New Comment</a>
+	<br><br>
+	<% Ecotourismdetails.comments.forEach(function(comment){ %>
+	<div class="comments">
+		<dl>
+			<dt>
+				<h6><%= comment.name.username %></h6>
+			</dt>
+			<pre><dt>  - <em><%= comment.content %></em></dt></pre>
+		</dl>
+		<% if(currentUser && comment.name.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+		<a class="btn btn-outline-primary btn-sm"
+			href="/ecotourism/<%= Ecotourismdetails._id %>/comments/<%= comment._id %>/edit">Edit</a>
+		<form class="delete_form"
+			action="/ecotourism/<%= Ecotourismdetails._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+			<button class="btn btn-outline-danger btn-sm">Delete</button>
+		</form>
+		<% } %>
+	</div>
+	<% }); %>
+</div>
 
-<% include ../partials/footer %> 
+<% include ../partials/footer %>

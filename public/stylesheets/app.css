@@ -11,7 +11,13 @@ html{
 }
 body{
 	font-family: 'Montserrat', sans-serif;
-	overflow-x: hidden;
+	width: 100vw;
+	margin-bottom: 100px;
+}
+
+.navbar {
+	padding: 1% 12%;
+	width: 100vw;
 }
 
 .thumbnail img {
@@ -56,13 +62,18 @@ body{
 	padding: 1rem;
 	font-size: .8rem;
 	letter-spacing: .1rem;
-	position: absolute;
+	margin-bottom: 0;
+	/* position: fixed;
 	bottom: 0;
-	left: 0;
+	left: 0; */
 }
 
 h6{
 	font-weight: bold;
+}
+
+.ecotourism_desc {
+	line-height: 2;
 }
 
 .login_to_explore{
@@ -79,14 +90,14 @@ h6{
 .thumbnail{
 	margin-bottom: 30px;
 }
-.new_artcraft{
+.new_ecotourism{
 	width: 550px;
 	height: 790px;
 	margin: 10px auto;
 	background-color: #f7f7f7; 
 	box-shadow: 0 0 2px 1px rgba(0, 0, 255, 0.2);
 }
-.new_artcraft h2{
+.new_ecotourism h2{
 	background: #2980b9;
 	color: white;
 	margin-bottom: 20px;
@@ -113,20 +124,18 @@ h6{
 	font-weight: normal;
 	text-align: center;
 }
-.show_container{
-	margin: 0% 15% 15%;	
+.show_container{	
 	background-color: #efeded; 
 	box-shadow: 0 0 2px 1px rgba(0, 0, 255, 0.2);
-	padding: 30px;
+	padding: 10%;
 }
 .comment_container{
-	margin: 0% 15% 15%;	
 	background-color: #efeded; 
 	box-shadow: 0 0 2px 1px rgba(0, 0, 255, 0.2);
-	padding: 30px;
+	padding:  5% 10%;
 }
 .explored_image{
-	width: 50%;
+	width: 100%;
 	margin-bottom: 15px;
 }
 details{
